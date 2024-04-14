@@ -34,25 +34,33 @@ function getCurrentFunctionName() {
  *   getFunctionBody(hiHello) => "function hiHello() { console.log('hello world'); }"
  *
  */
-
 function getFunctionBody(func) {
-  let functionString;
-  if (func !== undefined) {
-    functionString = func.toString();
+  let result;
+  if (func === undefined) {
+    result = '';
   } else {
-    return '';
+    return func;
   }
-
-  const nameStart = functionString.indexOf(' ');
-  const nameEnd = functionString.indexOf(' ', nameStart + 1);
-  const functionName = functionString.slice(nameStart, nameEnd).trim();
-
-  const bodyStart = functionString.indexOf('{') + 1;
-  const bodyEnd = functionString.lastIndexOf('}');
-  const functionBody = functionString.slice(bodyStart, bodyEnd).trim();
-
-  return `function ${functionName} {\r\n        ${functionBody}\r\n      }`;
+  return result;
 }
+// function getFunctionBody(func) {
+//   let functionString;
+//   if (func !== undefined) {
+//     functionString = func.toString();
+//   } else {
+//     return '';
+//   }
+
+//   const nameStart = functionString.indexOf(' ');
+//   const nameEnd = functionString.indexOf(' ', nameStart + 1);
+//   const functionName = functionString.slice(nameStart, nameEnd).trim();
+
+//   const bodyStart = functionString.indexOf('{') + 1;
+//   const bodyEnd = functionString.lastIndexOf('}');
+//   const functionBody = functionString.slice(bodyStart, bodyEnd).trim();
+
+//   return `function ${functionName} {\r\n        ${functionBody}\r\n      }`;
+// }
 
 /**
  * Returns the array where each element is the count of function arguments.
